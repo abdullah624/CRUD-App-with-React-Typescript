@@ -1,4 +1,6 @@
 import { Space, Table } from "antd";
+import React, { useContext } from "react";
+import { GlobalContext } from "../contexts/GlobalContext";
 import DeleteUserModal from "./modals/DeleteUserModal";
 import EditUserModal from "./modals/EditUserModal";
 
@@ -6,7 +8,7 @@ const columns = [
   {
     title: "SL No",
     width: 100,
-    dataIndex: "key",
+    dataIndex: "id",
     key: "id",
   },
   {
@@ -28,26 +30,9 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-  },
-];
-
 const UserList = () => {
-  return <Table size="middle" columns={columns} dataSource={data} />;
+  const { users } = useContext(GlobalContext);
+  return <Table size="middle" columns={columns} dataSource={users} />;
 };
 
 export default UserList;
