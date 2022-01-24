@@ -30,6 +30,8 @@ export const GlobalProvider = ({ children }: any) => {
     <GlobalContext.Provider
       value={{
         users: state.users,
+        // @ts-ignore: Unreachable code error
+        dispatch,
       }}
     >
       {children}
