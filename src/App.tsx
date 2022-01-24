@@ -1,5 +1,13 @@
+import "antd/dist/antd.css";
+import Home from "./components/Home";
+import { GlobalProvider } from "./contexts/GlobalContext";
+
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <GlobalProvider>
+      <Home />
+    </GlobalProvider>
+  );
 }
 
 export default App;
